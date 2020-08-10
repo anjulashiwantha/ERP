@@ -10,7 +10,25 @@ from .filters import *
 # Create your views here.
 
 def Register (requst):
-    context = {}
+    form = CreateUserForm()
+    if requst.method == 'POST':
+        form = CreateUserForm(requst.POST)
+        if form.is_valid():
+            user = form.save()
+            username = form.cleaned_data.get('username')
+
+            # group = Group.objects.get(name='customer')
+            # user.groups.add(group)
+            #
+            # Customer.objects.create(
+            #     user=user,
+            #     name=user.username,
+            # )
+
+            messages.success(requst, 'Account was created for ' + username)
+            return redirect("login")
+
+    context = {'form': form}
     return render(requst, 'accounts/registor.html', context)
 
 def loginPage(request):

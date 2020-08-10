@@ -21,6 +21,7 @@ class creat(ModelForm):
 
 
 class CreateUserForm(UserCreationForm):
+    parmission = forms.ChoiceField(widget=RadioSelect(), choices=Roles)
     class Meta:
         model = User
         fields = ['username', 'email', 'password1', 'password2']
