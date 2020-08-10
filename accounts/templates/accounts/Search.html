@@ -1,0 +1,47 @@
+{% extends 'accounts/main.html' %}
+{% load static %}
+
+{% block content %}
+
+
+<div class="row">
+  <div class="col">
+    <div class="card card-body">
+
+      <form method="get">
+        {{ myFilter.form }}
+
+        <button class="btn btn-primary" type="submit">Search</button>
+
+      </form>
+
+    </div>
+
+  </div>
+
+</div>
+
+<table class="table table-sm">
+  <tr>
+
+    <th>NIC Number</th>
+    <th>Name</th>
+    <th>Date</th>
+    <th>Issue</th>
+    <th>Remark</th>
+    <th>Remove</th>
+    <th>Update</th>
+  </tr>
+  {% for order in owners %}
+  <tr>
+    <td>{{order.NIC_Number}}</td>
+    <td>{{order.Name}}</td>
+    <td>{{order.date_created}}</td>
+    <td>{{order.Issues}} </td>
+    <td>{{order.Remark}} </td>
+    <td><button type="button" class="dtn-sm btn-btn" href="">Delete</button> </td>
+    <td><button type="button" class="dtn-sm btn-btn" href="">Update</button></td>
+  </tr>
+  {% endfor %}
+</table>
+{% endblock %}
