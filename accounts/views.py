@@ -1,3 +1,4 @@
+from django.contrib.auth.models import Group
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.contrib.auth import authenticate, login, logout
@@ -16,17 +17,15 @@ def Register (requst):
         if form.is_valid():
             user = form.save()
             username = form.cleaned_data.get('username')
+            role = form.cleaned_data.get('permission')
+            group = Group.objects.get(name=role)
+            user.groups.add(group)
 
-            # group = Group.objects.get(name='customer')
-            # user.groups.add(group)
-            #
-            # Customer.objects.create(
-            #     user=user,
-            #     name=user.username,
-            # )
+
+
 
             messages.success(requst, 'Account was created for ' + username)
-            return redirect("login")
+            return redirect("home")
 
     context = {'form': form}
     return render(requst, 'accounts/registor.html', context)
@@ -50,6 +49,10 @@ def loginPage(request):
 def logoutPage(request):
     logout(request)
     return redirect("login_page")
+
+def admindashboard (requst):
+    return render(requst, 'accounts/dashboard.html')
+
 
 def home(requst):
     owners = create.objects.all()

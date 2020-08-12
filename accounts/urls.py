@@ -12,4 +12,6 @@ urlpatterns = [
     path('search/', Search, name="Search_x"),
     path('register/', Register, name="Re_Gister"),
 
+    path('admin/', admindashboard, name="Admin_Dashboard"),
+
 ]
