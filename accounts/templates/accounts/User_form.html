@@ -1,0 +1,18 @@
+{% extends 'accounts/main_ad.html' %}
+{% load static %}
+
+
+{% block content%}
+<div style="">
+<br>
+    <br>
+    <form action="" method="post" autocomplete="off">
+        {% csrf_token %}
+        {{ formset.management_form }}
+
+        {{form}}
+            <hr>
+        <button type="submit" class="btn btn-success">Submit</button>
+    </form>
+</div>
+{% endblock %}

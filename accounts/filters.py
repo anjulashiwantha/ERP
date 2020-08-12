@@ -9,3 +9,8 @@ class OrderFilters(django_filters.FilterSet):
         model = create
         fields = '__all__'
         exclude = ['user', 'Name', 'Issues', 'Remark', 'date_created']
+
+class userFilter(django_filters.FilterSet):
+    class Meta:
+        model = UserCreated
+        fields = ['user_name', 'email', 'nic_number']

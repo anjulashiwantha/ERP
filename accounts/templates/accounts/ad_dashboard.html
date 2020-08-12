@@ -24,6 +24,23 @@
             <table class="table table-sm">
                 <tr>
 
+                    <th></th>
+                    <th>User Name</th>
+                    <th>Email</th>
+                </tr>
+                {% for users in user %}
+                    <tr>
+                        <td><button class="dtn dtn-primary" href="">view</button></td>
+                        <td>{{users.user_name}}</td>
+                        <td>{{users.email}}</td>
+                    </tr>
+                {% endfor %}
+            </table>
+        </div>
+        <div class="card card-body">
+             <table class="table table-sm">
+                <tr>
+
                     <th>NIC Number</th>
                     <th>Name</th>
                     <th>Date</th>

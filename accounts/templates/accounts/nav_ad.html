@@ -1,0 +1,39 @@
+{% block content %}
+<style>
+  .hello-msg{
+    font-size: 18px;
+    color: #7ft4s;
+    margin-right: 20px;
+  }
+</style>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <img src="">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+    </ul>
+  </div>
+    <span class="hello-msg">Hello, {{request.user}}</span>
+    <span><a class="hello-msg" href="{% url 'logout_page' %}">Logout</a> </span>
+</nav>
+
+<div class="bs-example">
+    <ul class="nav nav-tabs">
+        <li class="nav-item">
+            <a href="{% url 'Admin_Dashboard' %}" class="nav-link active">Dashboard</a>
+        </li>
+        <li class="nav-item">
+            <a href="{% url 'Created_User' %}" class="nav-link">Create User</a>
+        </li>
+        <li class="nav-item">
+            <a href="{% url 'Search_User'%}" class="nav-link">Search in User</a>
+        </li>
+    </ul>
+</div>
+
+
+
+{% endblock %}

@@ -1,0 +1,42 @@
+{% extends 'accounts/main_ad.html' %}
+{% load static %}
+
+{% block content %}
+
+
+<div class="row">
+  <div class="col">
+    <div class="card card-body">
+
+      <form method="get">
+        {{ myFilter.form }}
+
+        <button class="btn btn-primary" type="submit">Search</button>
+
+      </form>
+
+    </div>
+
+  </div>
+
+</div>
+
+<table class="table table-sm">
+  <tr>
+    <th>User Name</th>
+    <th>NIC Number</th>
+    <th>Email</th>
+    <th>User Roles</th>
+    <th>Remove</th>
+  </tr>
+  {% for users in users %}
+  <tr>
+    <td>{{users.user_name}}</td>
+    <td>{{users.nic_number}}</td>
+    <td>{{users.email}}</td>
+    <td>{{users.User_Roles}}</td>
+    <td><button class="dtn btn-sm btn-danger" href="{% url 'Order_Delete' owners.id %}">Delete</button> </td>
+  </tr>
+  {% endfor %}
+</table>
+{% endblock %}

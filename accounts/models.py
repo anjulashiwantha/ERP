@@ -36,4 +36,4 @@ class UserCreated(models.Model):
     User_Roles = models.CharField(max_length=200, null=True, choices=user)
 
     def __str__(self):
-        return self.user_name
+        return f"{self.user_name}"
