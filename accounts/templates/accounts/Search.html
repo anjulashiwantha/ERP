@@ -39,8 +39,8 @@
     <td>{{order.date_created}}</td>
     <td>{{order.Issues}} </td>
     <td>{{order.Remark}} </td>
-    <td><button type="button" class="dtn-sm btn-btn" href="">Delete</button> </td>
-    <td><button type="button" class="dtn-sm btn-btn" href="">Update</button></td>
+    <td><a class="btn btn-sm btn-danger" href="{% url 'Order_Delete' order.id %}">Delete</a> </td>
+    <td><a class="btn btn-sm btn-info" href="">Update</a></td>
   </tr>
   {% endfor %}
 </table>

@@ -105,11 +105,11 @@ def Order_Form(requst):
 
 
 def OrderDelete(requst, pk):
-    owners = create.objects.get(id=pk)
+    owner = create.objects.get(id=pk)
     if requst.method == 'POST':
-        owners.delete()
-        return redirect('/')
-    context = {'owners': owners}
+        owner.delete()
+        return redirect('Search_x')
+    context = {'owner': owner}
     return render(requst, 'accounts/delete.html', context)
 
 
