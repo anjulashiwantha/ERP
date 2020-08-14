@@ -35,7 +35,7 @@
     <td>{{users.nic_number}}</td>
     <td>{{users.email}}</td>
     <td>{{users.User_Roles}}</td>
-    <td><a class="dtn btn-sm btn-danger" href="">Delete</a> </td>
+    <td><a class="dtn btn-sm btn-danger" href="{% url 'User_delete' users.id %}">Delete</a> </td>
   </tr>
   {% endfor %}
 </table>

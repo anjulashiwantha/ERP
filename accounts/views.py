@@ -85,6 +85,15 @@ def searchUser(requst):
     context = {'users': users, 'myFilter': myFilter}
     return render(requst, 'accounts/search_user.html', context)
 
+def userdelete(requst, user_id):
+    users = UserCreated.objects.get(id=user_id)
+    if requst.method == 'POST':
+        users.delete()
+        return redirect('Search_User')
+    context = {'users': users}
+    return render(requst, 'accounts/ad_delete.html', context)
+
+
 
 def home(requst):
     owners = create.objects.all()
@@ -121,3 +130,15 @@ def Search(requst):
 
     context = {'owners': owners, 'myFilter': myFilter}
     return render(requst, 'accounts/Search.html', context)
+
+def Update(requst, pk):
+    owners = create.objects.get(id=pk)
+    form = creat(instance=owners)
+    if requst.method == 'POST':
+        form = creat(requst.POST, instance=owners)
+        if form.is_valid():
+            form.save()
+            return redirect('/')
+
+    context = {'form': form}
+    return render(requst, 'accounts/order.html', context)

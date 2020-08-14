@@ -1,4 +1,4 @@
-{% extends 'accounts/main.html' %}
+{% extends 'accounts/main_ad.html' %}
 {% load static %}
 
 {% block content %}
@@ -9,9 +9,9 @@
         <div class="card card-body">
             <p>Are you sure you want to delete </p>
 
-            <form action="{% url 'Order_Delete' owner.id %}" method="POST">
+            <form action="{% url 'User_delete' users.id %}" method="POST">
                 {% csrf_token %}
-                <a class="btn btn-warning" href="{% url 'Search_x' %}">Cancel</a>
+                <a class="btn btn-warning" href="{% url 'Search_User' %}">Cancel</a>
                 <input class="btn btn-danger" type="submit" name="Confirm">
             </form>
         </div>

@@ -40,7 +40,7 @@
     <td>{{order.Issues}} </td>
     <td>{{order.Remark}} </td>
     <td><a class="btn btn-sm btn-danger" href="{% url 'Order_Delete' order.id %}">Delete</a> </td>
-    <td><a class="btn btn-sm btn-info" href="">Update</a></td>
+    <td><a class="btn btn-sm btn-info" href="{% url 'Up_date' order.id %}">Update</a></td>
   </tr>
   {% endfor %}
 </table>

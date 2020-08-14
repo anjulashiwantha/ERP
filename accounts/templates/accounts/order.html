@@ -3,14 +3,21 @@
 
 
 {% block content%}
-<div style="">
+<style>
+    input,select{
+        float:right;
+    }
+
+</style>
+
+<div style="justify-content:center; margin-left:35%; margin-right:35%; width:20%" >
 <br>
     <br>
     <form action="" method="post" autocomplete="off">
         {% csrf_token %}
         {{ formset.management_form }}
 
-        {{form}}
+        {{form.as_p}}
             <hr>
         <button type="submit" class="btn btn-success">Submit</button>
     </form>

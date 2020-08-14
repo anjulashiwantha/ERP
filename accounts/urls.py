@@ -5,17 +5,19 @@ from .views import *
 urlpatterns = [
     path('login/', loginPage, name="login_page"),
     path('logout/', logoutPage, name="logout_page"),
+    path('register/', Register, name="Re_Gister"),
 
     path('', home, name="home"),
     path('orderForm/', Order_Form, name="OrderForm"),
     path('orderDelete/<str:pk>', OrderDelete, name="Order_Delete"),
-    # path('searchorder/<str:pk>', SearchOrder, name="Search_Order"),
     path('search/', Search, name="Search_x"),
-    path('register/', Register, name="Re_Gister"),
+    path('update/<str:pk>', Update, name="Up_date"),
+
 
     path('admin_dashboard/', admindashboard, name="Admin_Dashboard"),
     path('user/', CreatedUser, name="Created_User"),
     path('search_user/', searchUser, name="Search_User"),
+    path('userDelete/<int:user_id>', userdelete, name="User_delete"),
 
 
 
